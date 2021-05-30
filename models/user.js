@@ -5,6 +5,7 @@ const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
     //_id: mongoose.Schema.Types.ObjectId,
+    // doesn't work with all routes 
     name: {
         type: String,
         required: true,

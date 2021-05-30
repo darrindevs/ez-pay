@@ -68,7 +68,8 @@ router.route('/add').post((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-//todo add patch for updating 
+//todo add updating 
+
 
 
 // delete a user by id 
@@ -90,3 +91,6 @@ router.delete("/:userId", (req, res, next) => {
 
 // export the router 
 module.exports = router;
+
+//refs https://www.youtube.com/watch?v=7CqJlxBYj-M&t=513s
+//refs https://www.youtube.com/watch?v=WDrU305J1yw
