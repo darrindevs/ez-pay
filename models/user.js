@@ -1,39 +1,35 @@
 const mongoose = require('mongoose');
 
+// create the schema 
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-    username: {
+   // _id: mongoose.Types.ObjectId,
+    name: {
         type: String,
         required: true,
         trim: true,
-        minlength: 3
-    },
-    firstname: {
-        type: String,
-        required: false,
-        trim: true,
         minlength: 2
-    },
-    lastname: {
-        type: String,
-        required: false,
-        trim: true,
-        minlength: 2
-    },
-    email: {
-        type: String,
-        required: true,
-        match: /.+\@.+\..+/,
-        unique: true
-    },
-    password: {
-        type: String,
-        required: false
     },
     about: {
         type: String,
-        required: false 
+        required: false
+    },
+    campdesc: {
+        type: String,
+        required: false
+    },
+    meta1: {
+        type: String,
+        required: false
+    },
+    meta2: {
+        type: String,
+        required: false
+    },
+    meta3: {
+        type: String,
+        required: false
     }
 }, 
 
@@ -41,6 +37,9 @@ const userSchema = new Schema({
     timestamps: true,
 }); 
 
+// todo slugify the user https://scotch.io/courses/create-a-crud-app-with-node-and-mongodb/a-mongoose-model
+
+// create the model 
  const User = mongoose.model('User', userSchema);
 
  module.exports = User;
