@@ -23,6 +23,10 @@ connection.once('open', () => {
     console.log("MongoDB database connection established successfully");
 })    
 
+// import our routes 
+app.use('/projects', projectsRouter);
+app.use('/users', usersRouter);
+
 // start the server
 // run nodemon server to start server  / rs to restart 
 app.listen(port, () => {
