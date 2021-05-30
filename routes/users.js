@@ -4,31 +4,62 @@ const router = require('express').Router();
 let User = require('../models/user');
 
 // '/users' 
-router.route('/').get((req, res) => {
-    User.find() // find returns a promise 
-        .then(users => res.json(users)) // return users from db 
-        .catch(err => res.status(400).json('Error: ' + err)); // if error return error 
-    });
+router.get("/", (req, res, next) => {
+    User.find()
+      .exec()
+      .then(docs => {
+        console.log(docs);
+        if (docs.length >= 0) {
+        res.status(200).json(docs);
+        } else {
+        res.status(404).json({
+        message: 'No entries found'
+        });
+        }
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json({
+          error: err
+        });
+      });
+  });
 
-    // '/users/:id'
-    // get a user by id 
-router.route('/user/:id').get((req, res) => {
-    User.find() // find returns a promise 
-        .then(users => res.json(users)) // return users from db 
-        .catch(err => res.status(400).json('Error: ' + err)); // if error return error 
-    });
 
-// add (post) a new user 
+// '/users/:id'
+// get a user by id 
+router.get("/:userId", (req, res, next) => {
+    const id = req.params.userId;
+    User.findById(id)
+      .exec()
+      .then(doc => {
+        console.log("From database", doc);
+        if (doc) {
+          res.status(200).json(doc);
+        } else {
+          res
+            .status(404)
+            .json({ message: "No valid entry found for provided ID" });
+        }
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json({ error: err });
+      });
+  });
+
+  
+
+// add a new user 
 router.route('/add').post((req, res) => {
     //todo update this to a user id?
     // define all the values that to update and then pass as params
     const name = req.body.name;
     const about = req.body.about;
-    const campdesc = req.body.campdesc;
+    const campdesc = req.body.campdesc; 
     const meta1 = req.body.meta1;
     const meta2 = req.body.meta2;
     const meta3 = req.body.meta3;
-
     // create a new instance of the user
     const newUser = new User({name, about, campdesc, meta1, meta2, meta3});
     // save the new user to the db 
@@ -36,6 +67,26 @@ router.route('/add').post((req, res) => {
     .then(() => res.json('User added!')) // return user added 
     .catch(err => res.status(400).json('Error: ' + err));
 });
+
+//todo add patch for updating 
+
+
+// delete a user by id 
+router.delete("/:userId", (req, res, next) => {
+    const id = req.params.userId;
+    User.remove({ _id: id })
+      .exec()
+      .then(result => {
+        res.status(200).json(result);
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json({
+          error: err
+        });
+      });
+  });
+  
 
 // export the router 
 module.exports = router;
