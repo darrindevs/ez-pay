@@ -11,26 +11,25 @@ const userSchema = new Schema({
     },
     firstname: {
         type: String,
-        required: true,
+        required: false,
         trim: true,
         minlength: 2
     },
     lastname: {
         type: String,
-        required: true,
+        required: false,
         trim: true,
         minlength: 2
     },
     email: {
         type: String,
         required: true,
-        trim: true,
-        unique: true,
-        lowercase: true
+        match: /.+\@.+\..+/,
+        unique: true
     },
     password: {
         type: String,
-        required: true
+        required: false
     },
     about: {
         type: String,

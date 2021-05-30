@@ -1,11 +1,11 @@
 // set up express router 
 const router = require('express').Router();
 // require the mongoose model 
-let User = require('../models/user');
+let Project = require('../models/project');
 
 // '/projects' 
 router.route('/').get((req, res) => {
-    User.find() // find returns a promise 
+    Project.find() // find returns a promise 
         .then(projects => res.json(projects)) // return projects from db 
         .catch(err => res.status(400).json('Error: ' + err)); // if error return error 
     });
@@ -27,7 +27,7 @@ router.route('/add').post((req, res) => {
     });
     // save the new Project to the db 
     newProject.save()
-    .then(() => res,json('Project added!')) // return user added 
+    .then(() => res.json('Project added!')) // return user added 
     .catch(err => res.status(400).json('Error: ' + err));
 });
 

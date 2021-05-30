@@ -21,7 +21,11 @@ mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true }
 const connection = mongoose.connection;
 connection.once('open', () => {
     console.log("MongoDB database connection established successfully");
-})    
+})
+
+// define the routes 
+const projectsRouter = require('./routes/projects');
+const usersRouter = require('./routes/users');
 
 // import our routes 
 app.use('/projects', projectsRouter);
