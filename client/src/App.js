@@ -25,7 +25,6 @@ function App() {
         <body class="flex flex-col min-h-screen">{/* keep this for sticky footer */}
         <Navbar />
         <main class="flex-auto mt-10">{/* keep flex-auto for sticky footer */}
-        <NavTabs />
         <Route exact path="/" component={Home} />
         <Route exact path="/comp1" component={Comp1} />
         <Route exact path="/comp2" component={Comp2} />
