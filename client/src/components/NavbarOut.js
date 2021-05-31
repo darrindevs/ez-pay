@@ -1,5 +1,7 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { Fragment } from 'react'
+import { Fragment } from 'react';
+import { Link, useLocation } from "react-router-dom";
+import Brand from "./Brand";
 import { Popover, Transition } from '@headlessui/react'
 import {
   BookmarkAltIcon,
@@ -85,6 +87,9 @@ function classNames(...classes) {
 }
 
 export default function NavbarOut() {
+    // make sure to use this in any component where using location 
+  const location = useLocation();
+
   return (
     <Popover className="relative bg-white">
       {({ open }) => (
@@ -93,14 +98,9 @@ export default function NavbarOut() {
           <div className="relative z-20">
             <div className="max-w-7xl mx-auto flex justify-between items-center px-4 py-5 sm:px-6 sm:py-4 lg:px-8 md:justify-start md:space-x-10">
               <div>
-                <a href="#" className="flex">
-                  <span className="sr-only">Workflow</span>
-                  <img
-                    className="h-8 w-auto sm:h-10"
-                    src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
-                    alt=""
-                  />
-                </a>
+                <Brand />
+                  
+            
               </div>
               <div className="-mr-2 -my-2 md:hidden">
                 <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
@@ -189,6 +189,14 @@ export default function NavbarOut() {
                       </>
                     )}
                   </Popover>
+                  <span className="text-gray-900 inline-flex items-center text-sm font-medium nav-link">
+                <Link
+                to="/dashboard"
+                className={location.pathname === "/dashboard" ? "nav-link active" : "nav-link"}
+                >
+                Dashboard
+                </Link>
+                </span>
                   <a href="#" className="text-base font-medium text-gray-500 hover:text-gray-900">
                     Pricing
                   </a>

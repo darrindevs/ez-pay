@@ -9,6 +9,7 @@ function classNames(...classes) {
 }
 
 export default function Navbar() {
+  // make sure to use this in any component where using location 
   const location = useLocation();
 
   return (

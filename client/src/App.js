@@ -7,6 +7,7 @@ import Navbar from "./components/Navbar";
 import NavbarOut from "./components/NavbarOut";
 import NavTabs from "./components/NavTabs";
 
+
 import Home from "./Pages/Home";
 import Comp1 from "./components/Comp1";
 import Comp2 from "./components/Comp2";
