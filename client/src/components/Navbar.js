@@ -8,7 +8,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Example() {
+export default function Navbar() {
   const location = useLocation();
 
   return (
@@ -42,6 +42,14 @@ export default function Example() {
                 className={location.pathname === "/my-campaign" ? "nav-link active" : "nav-link"}
                 >
                 My Campaign
+                </Link>
+                </span>
+                <span className="text-gray-900 inline-flex items-center px-1 text-sm font-medium nav-link">
+                <Link
+                to="/send"
+                className={location.pathname === "/send" ? "nav-link active" : "nav-link"}
+                >
+                Send Money
                 </Link>
                 </span>
                 </div>

@@ -1,5 +1,6 @@
-import { Fragment } from 'react'
-import { Popover, Transition } from '@headlessui/react'
+import { Fragment } from 'react';
+import NavbarOut from "../components/NavbarOut";
+import { Popover, Transition } from '@headlessui/react';
 import {
   BookmarkAltIcon,
   CalendarIcon,
@@ -80,11 +81,12 @@ function classNames(...classes) {
 
 export default function Home() {
   return (
-    <div className="relative bg-gray-50">
-      
-
-                  
-
+ 
+    
+    
+    
+   <>
+      <NavbarOut />
       <main className="lg:relative">
         <div className="mx-auto max-w-7xl w-full pt-16 pb-20 text-center lg:py-48 lg:text-left">
           <div className="px-4 lg:w-1/2 sm:px-8 xl:pr-16">
@@ -117,6 +119,6 @@ export default function Home() {
           />
         </div>
       </main>
-    </div>
+    </>
   )
 }
