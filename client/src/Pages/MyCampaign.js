@@ -2,12 +2,12 @@ import React from "react";
 //import List2 from "../components/List2";
 
 
-function Home() {
+function MyCampaign() {
   return (
     <div>
-      this is home
+      this is my campaign
     </div>
   );
 }
 
-export default Home;
+export default MyCampaign;

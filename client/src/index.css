@@ -2,3 +2,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    background-color: white;
+}
+
+/* List */ 
+
+.project-name {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+/* Projects */
+
+.link {
+    color: blue;
+}
+
+p {
+    margin-bottom: 20px;
+}

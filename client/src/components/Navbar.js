@@ -1,53 +1,57 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { Fragment } from 'react'
-import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
+import { Fragment } from 'react';
+import { Disclosure, Menu, Transition } from '@headlessui/react';
+import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline';
+import { Link, useLocation } from "react-router-dom";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
 export default function Example() {
+  const location = useLocation();
+
   return (
     <Disclosure as="nav" className="bg-white shadow">
       {({ open }) => (
         <>
-          <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-            <div className="relative flex justify-between h-16">
-              <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-                {/* Mobile menu button */}
-                <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
-                  <span className="sr-only">Open main menu</span>
-                  {open ? (
-                    <XIcon className="block h-6 w-6" aria-hidden="true" />
-                  ) : (
-                    <MenuIcon className="block h-6 w-6" aria-hidden="true" />
-                  )}
-                </Disclosure.Button>
-              </div>
-              <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex justify-between h-16">
+              <div className="flex">
                 <div className="flex-shrink-0 flex items-center">
-                  PayMo
+                <Link
+                to="/"
+                className={location.pathname === "/" ? "nav-link active" : "nav-link"}
+                >
+                <h1 className="text-indigo-800"><strong>PayMo</strong></h1>
+                </Link>    
                 </div>
                 <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
-                  {/* Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
-                  <a
-                    href="#"
-                    className="border-indigo-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
-                  >
-                    Dashboard
-                  </a>
-                  
-                 
-                  
+                
+                <span className="text-gray-900 inline-flex items-center text-sm font-medium nav-link">
+                <Link
+                to="/dashboard"
+                className={location.pathname === "/dashboard" ? "nav-link active" : "nav-link"}
+                >
+                Dashboard
+                </Link>
+                </span>
+                <span className="text-gray-900 inline-flex items-center px-1 text-sm font-medium nav-link">
+                <Link
+                to="/my-campaign"
+                className={location.pathname === "/my-campaign" ? "nav-link active" : "nav-link"}
+                >
+                My Campaign
+                </Link>
+                </span>
                 </div>
               </div>
-              <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+              <div className="hidden sm:ml-6 sm:flex sm:items-center">
                 <button className="bg-white p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                   <span className="sr-only">View notifications</span>
                   <BellIcon className="h-6 w-6" aria-hidden="true" />
                 </button>
-
+                
                 {/* Profile dropdown */}
                 <Menu as="div" className="ml-3 relative">
                   {({ open }) => (
@@ -121,19 +125,78 @@ export default function Example() {
                   )}
                 </Menu>
               </div>
+              <div className="-mr-2 flex items-center sm:hidden">
+                {/* Mobile menu button */}
+                <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                  <span className="sr-only">Open main menu</span>
+                  {open ? (
+                    <XIcon className="block h-6 w-6" aria-hidden="true" />
+                  ) : (
+                    <MenuIcon className="block h-6 w-6" aria-hidden="true" />
+                  )}
+                </Disclosure.Button>
+              </div>
             </div>
           </div>
 
           <Disclosure.Panel className="sm:hidden">
-            <div className="pt-2 pb-4 space-y-1">
-              {/* Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700" */}
-              <a
-                href="#"
-                className="bg-indigo-50 border-indigo-500 text-indigo-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
-              >
+            <div className="pt-2 pb-3 space-y-1">
+            <span className="bg-indigo-50 border-indigo-500 text-indigo-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium nav-link">
+                <Link
+                to="/dashboard"
+                className={location.pathname === "/dashboard" ? "nav-link active" : "nav-link"}
+                >
                 Dashboard
-              </a>
-              
+                </Link>
+                </span>
+                <span className="bg-indigo-50 border-indigo-500 text-indigo-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium nav-link">
+                <Link
+                to="/my-campaign"
+                className={location.pathname === "/my-campaign" ? "nav-link active" : "nav-link"}
+                >
+                My Campaign
+                </Link>
+                </span>
+             
+            </div>
+            <div className="pt-4 pb-3 border-t border-gray-200">
+              <div className="flex items-center px-4">
+                <div className="flex-shrink-0">
+                  <img
+                    className="h-10 w-10 rounded-full"
+                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                    alt=""
+                  />
+                </div>
+                <div className="ml-3">
+                  <div className="text-base font-medium text-gray-800">Tom Cook</div>
+                  <div className="text-sm font-medium text-gray-500">tom@example.com</div>
+                </div>
+                <button className="ml-auto flex-shrink-0 bg-white p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                  <span className="sr-only">View notifications</span>
+                  <BellIcon className="h-6 w-6" aria-hidden="true" />
+                </button>
+              </div>
+              <div className="mt-3 space-y-1">
+                <a
+                  href="#"
+                  className="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100"
+                >
+                  Your Profile
+                </a>
+                <a
+                  href="#"
+                  className="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100"
+                >
+                  Settings
+                </a>
+                <a
+                  href="#"
+                  className="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100"
+                >
+                  Sign out
+                </a>
+              </div>
             </div>
           </Disclosure.Panel>
         </>

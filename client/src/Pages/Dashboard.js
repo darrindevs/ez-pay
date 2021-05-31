@@ -2,12 +2,12 @@ import React from "react";
 //import List2 from "../components/List2";
 
 
-function Home() {
+function Dashboard() {
   return (
     <div>
-      this is home
+      this is dashboard
     </div>
   );
 }
 
-export default Home;
+export default Dashboard;

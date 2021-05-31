@@ -1,11 +1,5 @@
-// main site container
+/* This example requires Tailwind CSS v2.0+ */
 export default function Container() {
-    return (
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8"> 
-            this is Container
-        </div>
-
-    )
-}
-
-
+    return <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">foo</div>
+  }
+  
