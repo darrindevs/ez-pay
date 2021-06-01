@@ -1,118 +1,132 @@
-import e from 'express';
+import express from 'express';
+import axios from 'axios';
 import React, { Component } from 'react';
 
 export default class Form1 extends Component {
     constructor(props) {
-        super(props);
-
-        this.onChangeUsername = this.onChangeUsername.bind(this);
-        this.onChangeName = this.onChangeName.bind(this);
-        this.onChangeAbout = this.onChangeAbout.bind(this);
-        this.onSubmit = this.onSubmit.bind(this);
-
-        this.state = {
-            name: '',
-            about: '',
-            users: [] // for now we are setting this manually 
-        }
+      super(props);
+  
+      this.onChangeName = this.onChangeName.bind(this);
+      this.onChangeUsername = this.onChangeUsername.bind(this);
+      this.onChangeAbout = this.onChangeAbout.bind(this);
+      this.onSubmit = this.onSubmit.bind(this);
+  
+      this.state = {
+        name: '',
+        username: '',
+        about: '',
+        users: []
+      }
     }
-}
+    
+    //! this block of code is failing ?
+    componentDidMount() {
+      axios.get('http://localhost:5000/users/')
+        .then(response => {
+          if (response.data.length > 0) {
+            this.setState({
+              users: response.data.map(user => user.username),
+              name: response.data[0].name,
+              username: response.data[0].username
+            })
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        })
+    }
+  
+    onChangeName(e) {
+      this.setState({
+        name: e.target.value
+      })
+    }
 
-// eventually we will pull the user from the db ... 
-// but for now we are going to hard code the values
-// componentdidmount = lifecycle method . will automatically get called before anything loads on the page
-componentDidMount() {
-    this.setState({
-        users: ['test user'],
-        username: 'test user'
-    })
-}
-
-
-// we are going to seelct a user manually for now 
-onChangeUsername(e) {
-    this.setState({
-        username: e.target.value //this is the value from the form 
-
-    });
-}
-
-onChangeName(e) {
-    this.setState({ // this refers to the class 
-        name: e.target.value //this is the value from the form 
-
-    });
-}
-
-onChangeAbout(e) {
-    this.setState({
-        about: e.target.value //this is the value from the form 
-
-    });
-}
-
-
-onsubmit(e) {
-    e.preventDefault(); // prevent default html form behavior
-    const profile = {
-        username: this.state.username,
+    onChangeUsername(e) {
+        this.setState({
+          username: e.target.value
+        })
+      }
+  
+    onChangeAbout(e) {
+      this.setState({
+        about: e.target.value
+      })
+    }
+  
+    
+    onSubmit(e) {
+      e.preventDefault();
+  
+      const profile = {
         name: this.state.name,
+        username: this.state.username,
         about: this.state.about
+      }
+  
+      console.log(profile);
+  
+      axios.post('http://localhost:5000/users/add', profile)
+        .then(res => console.log(res.data));
+  
+      //window.location = '/';
     }
-    console.log(profile);
-    //window.location = "/"; //this takes the user to the specified path . like a redirect???
-}
-
-render() {
-    return (
-        <div>
-            <form onSubmit={this.onSubmit}>
-                <div className="form-group">
-                    <label>
-                    Username
-                    </label>
-                    <select ref="userInput"
-                    required
-                    className="form-control"
-                    value={this.state.username}
-                    onChange={this.onChangeUsername}>
-                    </select>
-                    {   //select from our users array from db
-                        this.state.users.map(function(user)) {
-                            return <option 
-                            key={user}
-                            value={user}>{user}
-                            </option>;
-                        })
-                    }
-                </div>
-                <div className="form-group">
-                    <label>
-                    Name 
-                    </label>
-                    <input type="text"
-                    required
-                    className="form control"
-                    value={this.state.name}
-                    onChange={this.onChangeName}
-                    />
-                </div>
-                <div className="form-group">
-                    <label>
-                    About 
-                    </label>
-                    <input type="text"
-                    required
-                    className="form control"
-                    value={this.state.about}
-                    onChange={this.onChangeAbout}
-                    />
-                </div>
-                <div className="form-group">
-                    <input type="submit" value="Create Profile" className="button"></input>
-                </div>
-             </form>
-             
-        </div>
-    )
-}
+  
+    render() {
+      return (
+      <div>
+        <h3>Create New Profile</h3>
+        <form onSubmit={this.onSubmit}>
+          <div className="form-group"> 
+            <label>Name: </label>
+            <select ref="userInput"
+                required
+                className="form-control"
+                value={this.state.name}
+                onChange={this.onChangeName}>
+                {
+                  this.state.users.map(function(user) {
+                    return <option 
+                      key={user}
+                      value={user}>{user}
+                      </option>;
+                  })
+                }
+            </select>
+          </div>
+          <div className="form-group"> 
+            <label>Username: </label>
+            <select ref="userInput"
+                required
+                className="form-control"
+                value={this.state.username}
+                onChange={this.onChangeUsername}>
+                {
+                  this.state.users.map(function(user) {
+                    return <option 
+                      key={user}
+                      value={user}>{user}
+                      </option>;
+                  })
+                }
+            </select>
+          </div>
+          <div className="form-group"> 
+            <label>About: </label>
+            <input  type="text"
+                required
+                className="form-control"
+                value={this.state.about}
+                onChange={this.onChangeAbout}
+                />
+          </div>
+          
+          <div className="form-group">
+            <input type="submit" value="Create Profile" className="btn btn-primary" />
+          </div>
+        </form>
+      </div>
+      )
+    }
+  }
+  
