@@ -6,11 +6,17 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
     //_id: mongoose.Schema.Types.ObjectId,
     // doesn't work with all routes 
+    username: {
+        type: String,
+    },
     name: {
         type: String,
-        required: true,
-        trim: true,
-        minlength: 2
+    },
+    googleId: {
+        type: String,
+    },
+    secret: {
+        type: String,
     },
     about: {
         type: String,

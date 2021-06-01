@@ -16,7 +16,7 @@ app.use(express.json()); //allows us to parse json
 // set up moongoose
 const uri = process.env.ATLAS_URI; //this is defined in .env
 //todo update the uri in .env with Heroku app url once created
-mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true }
+mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true }
     );
 const connection = mongoose.connection;
 connection.once('open', () => {
