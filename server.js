@@ -46,6 +46,27 @@ const usersRouter = require('./routes/users');
 app.use('/projects', projectsRouter);
 app.use('/users', usersRouter);
 
+// add route middleware for passport
+// todo update for production url 
+// ? not sure this is the right place 
+app.get("/auth/google",
+  passport.authenticate("google", { scope: ["profile"] })
+);
+app.get("/auth/google/callback",
+  passport.authenticate("google", { failureRedirect: "http://localhost:3000" }),
+  function(req, res) {
+    // Successful authentication, redirect secrets.
+    res.redirect("http://localhost:3000");
+  }
+);
+
+// add logout
+// todo update for production url 
+app.get("/logout", function(req, res){
+    res.redirect("http://localhost:3000/");
+  });
+
+
 // start the server
 // run nodemon server to start server  / rs to restart 
 app.listen(port, () => {
