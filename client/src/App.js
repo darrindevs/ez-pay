@@ -6,6 +6,7 @@ import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 import Navbar from "./components/Navbar";
 import NavbarOut from "./components/NavbarOut";
 import NavTabs from "./components/NavTabs";
+import Authentication from "./components/Authentication";
 
 
 import Home from "./Pages/Home";
