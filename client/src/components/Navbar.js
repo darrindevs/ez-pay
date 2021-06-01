@@ -3,6 +3,8 @@ import { Fragment } from 'react';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline';
 import { Link, useLocation } from "react-router-dom";
+// check authentication and do stuff
+import AuthCheck from "../components/AuthCheck";
 
 
 function classNames(...classes) {
@@ -20,6 +22,7 @@ export default function Navbar() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between h-16">
               <div className="flex">
+               
                 <div className="flex-shrink-0 flex items-center">
                 <Link
                 to="/"
