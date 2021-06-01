@@ -24,7 +24,7 @@ function App() {
   return (
     <Router>
       <Switch>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="">
         <body class="flex flex-col min-h-screen">{/* keep this for sticky footer */}
         <main class="">{/* keep flex-auto for sticky footer */}
         <Route exact path="/" component={Home} />
@@ -35,7 +35,6 @@ function App() {
         <Route exact path="/my-campaign" component={MyCampaign} />
         <Route exact path="/send" component={Send} />
         </main>
-        <Footer />
         </body>
       </div>
 
