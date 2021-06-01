@@ -46,6 +46,10 @@ const userSchema = new Schema({
 
 // todo slugify the user https://scotch.io/courses/create-a-crud-app-with-node-and-mongodb/a-mongoose-model
 
+// for passport 
+userSchema.plugin(passportLocalMongoose);
+userSchema.plugin(findOrCreate);
+
 // create the model 
  const User = mongoose.model('User', userSchema);
 
