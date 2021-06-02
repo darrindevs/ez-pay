@@ -16,6 +16,7 @@ import Comp3 from "./components/Comp3";
 import Dashboard from "./Pages/Dashboard";
 import MyCampaign from "./Pages/MyCampaign";
 import Send from "./Pages/Send"
+import Profile from "./Pages/Profile"
 import Footer from "./components/Footer";
 //import About from "./pages/About";
 //import Blog from "./pages/Blog";
@@ -28,11 +29,13 @@ function App() {
       <div className="">
         <body class="flex flex-col min-h-screen">{/* keep this for sticky footer */}
         <main class="">{/* keep flex-auto for sticky footer */}
+        <Navbar />
         <Route exact path="/" component={Home} />
         <Route exact path="/comp1" component={Comp1} />
         <Route exact path="/comp2" component={Comp2} />
         <Route exact path="/comp3" component={Comp3} />
         <Route exact path="/dashboard" component={Dashboard} />
+        <Route exact path="/profile" component={Profile} />
         <Route exact path="/my-campaign" component={MyCampaign} />
         <Route exact path="/send" component={Send} />
         </main>

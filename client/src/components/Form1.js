@@ -1,5 +1,8 @@
 import axios from 'axios';
 import React, { Component } from 'react';
+// import utils
+//import { useStoreContext } from '../utils/GlobalState';
+//import { ADD_POST, LOADING } from '../utils/actions';
 
 
 export default class Form1 extends Component {
@@ -19,7 +22,7 @@ export default class Form1 extends Component {
       }
     }
     
-    //! this block of code is failing ?
+    // todo change this to get current logged in user (not all users)
     componentDidMount() {
       axios.get('http://localhost:5000/users/')
         .then(response => {
@@ -53,11 +56,12 @@ export default class Form1 extends Component {
         about: e.target.value
       })
     }
-  
+
+    
     
     onSubmit(e) {
       e.preventDefault();
-  
+      //dispatch({ type: LOADING });
       const profile = {
         name: this.state.name,
         username: this.state.username,
@@ -65,11 +69,15 @@ export default class Form1 extends Component {
       }
   
       console.log(profile);
-  
+      
+      //todo update this to update current logged in user
       axios.post('http://localhost:5000/users/add', profile)
         .then(res => console.log(res.data));
   
-      //window.location = '/';
+        this.setState({
+          username: '',
+          about: ''
+        })
     }
   
     render() {
@@ -122,7 +130,14 @@ export default class Form1 extends Component {
           </div>
           
           <div className="form-group">
-            <input type="submit" value="Create Profile" className="btn btn-primary" />
+          
+          
+          <button
+          className=""
+          type="submit"
+        >
+          Save Post
+        </button>
           </div>
         </form>
       </div>
