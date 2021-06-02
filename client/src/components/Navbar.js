@@ -49,14 +49,7 @@ export default function Navbar() {
                 Profile
                 </Link>
                 </span>
-                <span className="text-gray-900 inline-flex items-center px-1 text-sm font-medium nav-link">
-                <Link
-                to="/my-campaign"
-                className={location.pathname === "/my-campaign" ? "nav-link active" : "nav-link"}
-                >
-                My Campaign
-                </Link>
-                </span>
+                
                 <span className="text-gray-900 inline-flex items-center px-1 text-sm font-medium nav-link">
                 <Link
                 to="/send"
