@@ -7,6 +7,8 @@ import Navbar from "./components/Navbar";
 import NavbarOut from "./components/NavbarOut";
 import NavTabs from "./components/NavTabs";
 import Authentication from "./components/Authentication";
+// set up persisting logged in user 
+import axios from "axios";
 
 
 import Home from "./Pages/Home";

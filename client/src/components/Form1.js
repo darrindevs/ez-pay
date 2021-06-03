@@ -71,7 +71,7 @@ export default class Form1 extends Component {
       console.log(profile);
       
       //todo update this to update current logged in user
-      axios.post('http://localhost:5000/users/add', profile)
+      axios.patch('http://localhost:5000/users/', profile)
         .then(res => console.log(res.data));
   
         this.setState({

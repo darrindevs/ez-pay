@@ -28,7 +28,7 @@ function AuthCheck() {
            Signup
           </Link>
           <Link to="/login">
-            Foo
+            Login
           </Link>
         </div>
       )}

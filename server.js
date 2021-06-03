@@ -4,6 +4,8 @@ const mongoose = require('mongoose');
 // required for authentication 
 const session = require("express-session");
 const passport = require("passport");
+// add passport session 
+//const passportsession = require("passport-session");
 const passportLocalMongoose = require("passport-local-mongoose");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const findOrCreate = require("mongoose-findorcreate");
@@ -47,24 +49,37 @@ app.use('/projects', projectsRouter);
 app.use('/users', usersRouter);
 
 // add route middleware for passport
-// todo update for production url 
-// ? not sure this is the right place 
+// todo update for production url ???
 app.get("/auth/google",
-  passport.authenticate("google", { scope: ["profile"] })
+  passport.authenticate("google", { scope: ["profile", "email"] })
 );
 app.get("/auth/google/callback",
   passport.authenticate("google", { failureRedirect: "http://localhost:3000" }),
   function(req, res) {
     // Successful authentication, redirect secrets.
-    res.redirect("http://localhost:3000");
+    // this is working - if the user user authenticated then the url will be /a/...
+    res.redirect("http://localhost:3000/account");
   }
 );
 
 // add logout
 // todo update for production url 
+// todo make a button / link for this 
 app.get("/logout", function(req, res){
     res.redirect("http://localhost:3000/");
   });
+
+
+//! not working
+//todo display user logged in/out , do stuff 
+// display stuff using the AuthCheck component
+//app.get("/checkAuthentication", (req, res) => {
+//const authenticated: boolean = typeof req.user !== 'undefined'
+
+//res.status(200).json({
+//authenticated,
+//});
+//}); 
 
 
 // start the server

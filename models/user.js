@@ -58,16 +58,29 @@ userSchema.plugin(findOrCreate);
 // create the model 
  const User = mongoose.model('User', userSchema);
 
- // passport
+// passport
+ // Used to stuff a piece of information into a cookie
 passport.use(User.createStrategy());
 passport.serializeUser(function(user, done) {
   done(null, user.id);
 });
+// Used to decode the received cookie and persist session
 passport.deserializeUser(function(id, done) {
   User.findById(id, function(err, user) {
     done(err, user);
   });
 });
+
+// Middleware to check if the user is authenticated
+function isUserAuthenticated(req, res, next) {
+  if (req.user) {
+      next();
+  } else {
+      res.send('You must login!');
+  }
+}
+
+
 passport.use(new GoogleStrategy({
     clientID: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
