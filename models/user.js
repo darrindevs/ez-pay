@@ -11,30 +11,26 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
     //_id: mongoose.Schema.Types.ObjectId,
     // doesn't work with all routes 
-    googleId : {
+  googleId : {
       type : String,
-      required: true 
+      required: false
   } , 
   displayName : {
    type : String,
-   required: true
+   required: false
 } ,
 firstName : {
    type : String,
-   required: true
+   required: false
 } ,
 lastName : {
    type : String,
-   required: true
+   required: false
 },
 image : {
    type : String,
    
-   required: true
-},
-lastName : {
-  type : String,
-  required: true
+   required: false
 },
 about : {
   type : String,
