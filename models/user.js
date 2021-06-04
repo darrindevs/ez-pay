@@ -11,43 +11,48 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
     //_id: mongoose.Schema.Types.ObjectId,
     // doesn't work with all routes 
-    username: {
-        type: String,
-    },
-    name: {
-        type: String,
-    },
-    googleId: {
-        type: String,
-    },
-    secret: {
-        type: String,
-    },
-    about: {
-        type: String,
-        required: false
-    },
-    campdesc: {
-        type: String,
-        required: false
-    },
-    meta1: {
-        type: String,
-        required: false
-    },
-    meta2: {
-        type: String,
-        required: false
-    },
-    meta3: {
-        type: String,
-        required: false
-    }
-}, 
-
-{
-    timestamps: true,
-}); 
+    googleId : {
+      type : String,
+      required: true 
+  } , 
+  displayName : {
+   type : String,
+   required: true
+} ,
+firstName : {
+   type : String,
+   required: true
+} ,
+lastName : {
+   type : String,
+   required: true
+},
+image : {
+   type : String,
+   
+   required: true
+},
+lastName : {
+  type : String,
+  required: true
+},
+about : {
+  type : String,
+  required: false
+},
+campdesc : {
+  type : String,
+  required: false
+},
+meta1 : {
+  type : String,
+  required: false
+},
+createdAt:{
+  type: Date,
+  default : Date.now
+}    
+});
 
 // todo slugify the user https://scotch.io/courses/create-a-crud-app-with-node-and-mongodb/a-mongoose-model
 
