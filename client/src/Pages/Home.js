@@ -22,59 +22,59 @@ import { ChevronDownIcon } from '@heroicons/react/solid'
 const features = [
   {
     name: 'Analytics',
-    href: '#',
+    href: '',
     description: 'Get a better understanding of where your traffic is coming from.',
     icon: ChartBarIcon,
   },
   {
     name: 'Engagement',
-    href: '#',
+    href: '',
     description: 'Speak directly to your customers in a more meaningful way.',
     icon: CursorClickIcon,
   },
-  { name: 'Security', href: '#', description: "Your customers' data will be safe and secure.", icon: ShieldCheckIcon },
+  { name: 'Security', href: '', description: "Your customers' data will be safe and secure.", icon: ShieldCheckIcon },
   {
     name: 'Integrations',
-    href: '#',
+    href: '',
     description: "Connect with third-party tools that you're already using.",
     icon: ViewGridIcon,
   },
   {
     name: 'Automations',
-    href: '#',
+    href: '',
     description: 'Build strategic funnels that will drive your customers to convert',
     icon: RefreshIcon,
   },
 ]
 const callsToAction = [
-  { name: 'Watch Demo', href: '#', icon: PlayIcon },
-  { name: 'Contact Sales', href: '#', icon: PhoneIcon },
+  { name: 'Watch Demo', href: '', icon: PlayIcon },
+  { name: 'Contact Sales', href: '', icon: PhoneIcon },
 ]
 const resources = [
   {
     name: 'Help Center',
     description: 'Get all of your questions answered in our forums or contact support.',
-    href: '#',
+    href: '',
     icon: SupportIcon,
   },
   {
     name: 'Guides',
     description: 'Learn how to maximize our platform to get the most out of it.',
-    href: '#',
+    href: '',
     icon: BookmarkAltIcon,
   },
   {
     name: 'Events',
     description: 'See what meet-ups and other events we might be planning near you.',
-    href: '#',
+    href: '',
     icon: CalendarIcon,
   },
-  { name: 'Security', description: 'Understand how we take your privacy seriously.', href: '#', icon: ShieldCheckIcon },
+  { name: 'Security', description: 'Understand how we take your privacy seriously.', href: '', icon: ShieldCheckIcon },
 ]
 const recentPosts = [
-  { id: 1, name: 'Boost your conversion rate', href: '#' },
-  { id: 2, name: 'How to use search engine optimization to drive traffic to your site', href: '#' },
-  { id: 3, name: 'Improve your customer experience', href: '#' },
+  { id: 1, name: 'Boost your conversion rate', href: '' },
+  { id: 2, name: 'How to use search engine optimization to drive traffic to your site', href: '' },
+  { id: 3, name: 'Improve your customer experience', href: '' },
 ]
 
 function classNames(...classes) {
@@ -99,7 +99,7 @@ export default function Home() {
             <div className="mt-10 sm:flex sm:justify-center lg:justify-start">
               <div className="rounded-md shadow">
                 <a
-                  href="#"
+                  href=""
                   className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"
                 >
                   <Authentication />
