@@ -86,6 +86,9 @@ app.get("/logout", function(req, res){
 //});
 //}); 
 
+app.get('*', (req, res) => {
+  res.redirect('/#');
+});
 
 // start the server
 // run nodemon server to start server  / rs to restart 
