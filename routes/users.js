@@ -26,8 +26,10 @@ router.get("/", (req, res, next) => {
   });
 
 
-// '/users/:id'
+
 // get a user by id 
+// this is working 
+// like this /users/38293829102932
 router.get("/:userId", (req, res, next) => {
     const id = req.params.userId;
     User.findById(id)
@@ -48,28 +50,28 @@ router.get("/:userId", (req, res, next) => {
       });
   });
 
-  
-
 // add a new user 
+// this is working with all fielbs in object
+// like this /add 
 router.route('/add').post((req, res) => {
-    //todo update this to a user id?
-    // define all the values that to update and then pass as params
-    const displayName = req.body.displayName;
-    const firstName = req.body.firstName;
-    const lastName = req.body.lastName;
-    const about = req.body.about;
-    const campdesc = req.body.campdesc; 
-    const meta1 = req.body.meta1;
-    // create a new instance of the user
-    const newUser = new User({displayName, firstName, lastName, about, campdesc, meta1 });
     // save the new user to the db 
+    const newUser = new User(); 
+    newUser.displayName = req.body.displayName;
+    newUser.firstName = req.body.firstName;
+    newUser.lastName = req.body.lastName;
+    newUser.about = req.body.about;
+    newUser.campdesc = req.body.campdesc;
+    newUser.meta1 = req.body.meta1;
+    
     newUser.save()
     .then(() => res.json('User added!')) // return user added 
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-// update user bu id 
-router.route('/:userId').put((req, res) => {
+// update user by id 
+// this is working 
+// like this /users/38293829102932
+router.route('/:userId').patch((req, res) => {
   const id = req.params.userId;
   // define all the values that to update and then pass as params
   const displayName = req.body.displayName;
@@ -79,14 +81,18 @@ router.route('/:userId').put((req, res) => {
     const campdesc = req.body.campdesc; 
     const meta1 = req.body.meta1;
     // create a new instance of the user
-    const newUser = new User({displayName, firstName, lastName, about, campdesc, meta1 });
-  // save the new user to the db 
-  newUser.save()
-  .then(() => res.json('User added!')) // return user added 
+    //const newUser = new User({displayName, firstName, lastName, about, campdesc, meta1 });
+    User.updateOne({ _id: id}, {$set: req.body })
+    .then(() => res.json('User added!')) // return user added 
   .catch(err => res.status(400).json('Error: ' + err));
+  // save the new user to the db 
+  //newUser.save()
+  //.then(() => res.json('User added!')) // return user added 
+  //.catch(err => res.status(400).json('Error: ' + err));
 });
 
-
+// this is working 
+// like this /users/38293829102932
 // delete a user by id 
 router.delete("/:userId", (req, res, next) => {
     const id = req.params.userId;
@@ -102,9 +108,6 @@ router.delete("/:userId", (req, res, next) => {
         });
       });
   });
-
- 
-  
 
 // export the router 
 module.exports = router;

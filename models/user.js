@@ -9,8 +9,6 @@ const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-    //_id: mongoose.Schema.Types.ObjectId,
-    // doesn't work with all routes 
   googleId : {
       type : String,
       required: false

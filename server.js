@@ -3,6 +3,8 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 // required for authentication 
 const session = require("express-session");
+
+// passport for authentication
 const passport = require("passport");
 // add passport session 
 //const passportsession = require("passport-session");
@@ -48,8 +50,7 @@ const usersRouter = require('./routes/users');
 app.use('/projects', projectsRouter);
 app.use('/users', usersRouter);
 
-// add route middleware for passport
-// todo update for production url ???
+// middleware for passport
 app.get("/auth/google",
   passport.authenticate("google", { scope: ["profile", "email"] })
 );
