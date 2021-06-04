@@ -8,7 +8,7 @@ export default function Brand() {
         to="/"
         className={location.pathname === "/" ? "nav-link active" : "nav-link"}
         >
-        <h1 className="text-indigo-800"><strong>PayMo</strong></h1>
+        <h1 className="text-indigo-800"><strong>EZ ⚡️ Pay</strong></h1>
         </Link>   
     )
   }

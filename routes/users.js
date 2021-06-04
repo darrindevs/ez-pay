@@ -80,15 +80,10 @@ router.route('/:userId').patch((req, res) => {
     const about = req.body.about;
     const campdesc = req.body.campdesc; 
     const meta1 = req.body.meta1;
-    // create a new instance of the user
-    //const newUser = new User({displayName, firstName, lastName, about, campdesc, meta1 });
+
     User.updateOne({ _id: id}, {$set: req.body })
     .then(() => res.json('User added!')) // return user added 
-  .catch(err => res.status(400).json('Error: ' + err));
-  // save the new user to the db 
-  //newUser.save()
-  //.then(() => res.json('User added!')) // return user added 
-  //.catch(err => res.status(400).json('Error: ' + err));
+    .catch(err => res.status(400).json('Error: ' + err));
 });
 
 // this is working 
