@@ -23,6 +23,10 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json()); //allows us to parse json 
 
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
+
 // for passport and authentication
 app.use(session({
     secret: "Our little secret.",
@@ -47,7 +51,7 @@ const projectsRouter = require('./routes/projects');
 const usersRouter = require('./routes/users');
 
 // import our routes 
-app.use('/projects', projectsRouter);
+//app.use('/projects', projectsRouter);
 app.use('/users', usersRouter);
 
 // middleware for passport
