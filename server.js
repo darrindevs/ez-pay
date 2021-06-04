@@ -89,7 +89,7 @@ app.get("/logout", function(req, res){
 //}); 
 
 app.get('*', (req, res) => {
-  res.redirect('/home');
+  res.redirect('/');
 });
 
 // start the server
