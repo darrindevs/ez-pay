@@ -61,11 +61,12 @@ app.get("/auth/google",
   passport.authenticate("google", { scope: ["profile", "email"] })
 );
 app.get("/auth/google/callback",
-  passport.authenticate("google", { failureRedirect: "http://localhost:3000" }),
+  passport.authenticate("google", { failureRedirect: "http://localhost:3000" || "/" }),
   function(req, res) {
     // Successful authentication, redirect secrets.
     // this is working - if the user user authenticated then the url will be /a/...
-    res.redirect("http://localhost:3000/account");
+    // local host required for google in development
+    res.redirect("http://localhost:3000/account" || "/account");
   }
 );
 

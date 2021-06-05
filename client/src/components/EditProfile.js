@@ -29,7 +29,7 @@ export default class EditProfile extends Component {
     }
 
     console.log(profile);
-
+    // todo update the url 
     axios.post('http://localhost:5000/users/add')
       .then(res => console.log(res.data));
 
