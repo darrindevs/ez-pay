@@ -1,6 +1,7 @@
 const db = require("../models");
 
 // Defining methods for the usersController
+// User is defined in /models/user
 module.exports = {
   findAll: function(req, res) {
     db.User.find(req.query)
