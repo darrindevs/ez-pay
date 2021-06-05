@@ -1,4 +1,5 @@
 import { Fragment, useState } from 'react';
+import EditProfile from '../components/EditProfile';
 //import EditProfile from '../components/EditProfile';
 import Form1 from '../components/Form1';
 
@@ -10,7 +11,7 @@ export default function Dashboard() {
       {/* We've used 3xl here, but feel free to try other max-widths based on your needs */}
       <div className="max-w-2xl mx-auto">{/* Content goes here */}
       <main className="max-w-lg mx-auto pt-10 pb-12 px-4 lg:pb-16">
-      <Form1 />
+      <EditProfile />
      </main>
       </div>{/* end container */}
     </div>

@@ -27,6 +27,7 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
+
 //app.use(express.static('public'));
 
 // for passport and authentication
@@ -88,8 +89,12 @@ app.get("/logout", function(req, res){
 //});
 //}); 
 
+//app.get('*', (req, res) => {
+  //res.redirect('/');
+//});
+
 app.get('*', (req, res) => {
-  res.redirect('/');
+  res.sendFile(path.join(__dirname, '../client/build/index.html'));
 });
 
 // start the server
