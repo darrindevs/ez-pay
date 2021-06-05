@@ -33,11 +33,12 @@ if (process.env.NODE_ENV === "production") {
 app.use
   (session({
     secret: process.env.SESSION_SECRET,
-    resave: true, // true for dev to see cookie being sent
-    //todo switch to false for production 
-    saveUninitialized: false,
+    resave: false, 
+    saveUninitialized: true, // true sets cookie in browser beforee we have info for session - true for dev, false for prod
+    //todo switch savedUninitialized to false for production 
     cookie: {
-      httpOnly: true
+      httpOnly: true,
+      maxAge: 7200000 // 2 hours 
     }
   }));
   // session is now on the server and confirmed that cookie is visible in the browser 
@@ -46,7 +47,7 @@ app.use
 // console log session info - seeing this only on fresh authentication 
 app.use((req, res, next) => {
   console.log(req.session);
-  next();
+  next(); // pass controls to the next function 
 });
 
 // track logged in user using session
@@ -70,8 +71,6 @@ const requireAuth = (req, res, next) => {
      //}
      //next();
 //};
-
-
 
 app.use(passport.initialize());
 app.use(passport.session());
