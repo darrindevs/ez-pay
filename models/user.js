@@ -81,7 +81,10 @@ function isUserAuthenticated(req, res, next) {
 
 
 passport.use(new GoogleStrategy({
-    clientID: process.env.CLIENT_ID,
+    //clientID: process.env.CLIENT_ID,
+    // note: moved this here during refactor, wasn't picking it up from env 
+    clientID: "1047422605508-6mtitc7qnu73caelnp57ov166mreod25.apps.googleusercontent.com",
+    //clientSecret: process.env.CLIENT_SECRET,
     clientSecret: process.env.CLIENT_SECRET,
     callbackURL: "http://localhost:5000/auth/google/callback" || "/auth/google/callback",
     userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
