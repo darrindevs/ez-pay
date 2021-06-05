@@ -30,13 +30,51 @@ if (process.env.NODE_ENV === "production") {
 //app.use(express.static('public'));
 
 // for passport and authentication
-app.use(session({
-    secret: "Our little secret.",
-    resave: false,
-    saveUninitialized: false
+app.use
+  (session({
+    secret: process.env.SESSION_SECRET,
+    resave: true, // true for dev to see cookie being sent
+    //todo switch to false for production 
+    saveUninitialized: false,
+    cookie: {
+      httpOnly: true
+    }
   }));
-  app.use(passport.initialize());
-  app.use(passport.session());
+  // session is now on the server and confirmed that cookie is visible in the browser 
+
+//session middleware 
+// console log session info - seeing this only on fresh authentication 
+app.use((req, res, next) => {
+  console.log(req.session);
+  next();
+});
+
+// track logged in user using session
+// https://www.youtube.com/watch?v=3B2EiRaRy7g 
+const requireAuth = (req, res, next) => {
+  const { user } = req.session;
+  if (!user) {
+    return res.status(401).json({ message: 'Unauthorized'});
+  }
+  next();  
+};
+
+// this middleware is in case we want to restrict access to admins only
+// admin will need to be defined in the user model / user level
+//const requireAdmin = (req, res, next) => {
+  //const { user } = req.session; 
+  //if (user.role !== 'admin') {
+    //return res 
+      //.status(401)
+      //.json({ messsage: 'Insufficient role'});
+     //}
+     //next();
+//};
+
+
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 // set up moongoose
 const uri = process.env.ATLAS_URI; //this is defined in .env
