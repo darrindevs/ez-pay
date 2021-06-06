@@ -2,7 +2,7 @@
 import { Fragment } from 'react';
 import Authentication from "../components/Authentication";
 import { Link, useLocation } from "react-router-dom";
-import Brand from "./Brand";
+
 import { Popover, Transition } from '@headlessui/react'
 import {
   BookmarkAltIcon,
@@ -24,6 +24,9 @@ import {
   XIcon,
 } from '@heroicons/react/outline'
 import { ChevronDownIcon } from '@heroicons/react/solid'
+
+// components 
+import Brand from "./Brand";
 import AuthCheck from './AuthCheck';
 
 
