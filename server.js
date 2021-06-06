@@ -27,9 +27,10 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../client/build/index.html'));
-});
+// ! commented out as this was breaking google auth...
+//app.get('*', (req, res) => {
+//  res.sendFile(path.join(__dirname, '../client/build/index.html'));
+//});
 
 //app.use(express.static('public'));
 

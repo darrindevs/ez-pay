@@ -31,7 +31,7 @@ function App() {
       <div className="">
         <body class="flex flex-col min-h-screen">{/* keep this for sticky footer */}
         <main class="">{/* keep flex-auto for sticky footer */}
-        <Navbar />
+        <NavbarOut />
         <Route exact path="/" component={Home} />
         <Route exact path="/comp1" component={Comp1} />
         <Route exact path="/comp2" component={Comp2} />
