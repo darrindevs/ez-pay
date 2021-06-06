@@ -12,6 +12,7 @@ import BrandWhite from "../components/BrandWhite";
 import ProfileComponent from '../components/ProfileComponent';
 import Form1 from "../components/Form1";
 import Footer from "../components/Footer";
+import FooterAccount from "../components/FooterAccount";
 
 // tailwind 
 import {  Dialog, Menu, Popover, Transition } from '@headlessui/react';
@@ -247,9 +248,11 @@ export default function Account() {
                 
               </div>
               {/* /End replace */}
+             
             </div>
           </div>
         </main>
+        <FooterAccount />
       </div>
     </div>
   )
