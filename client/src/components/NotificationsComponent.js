@@ -1,12 +1,15 @@
-/* This example requires Tailwind CSS v2.0+ */
+// components
+import AlertInfo from "../components/AlertInfo";
+
+// tailwind
+import { InformationCircleIcon } from '@heroicons/react/solid'
+
 export default function NotificationsComponent() {
-    return (
-      <div className="container">
-       this is Notifications Component
-     {/* > container  */}
-      </div>
-      
-      
-    )
-  }
-  
+  return (
+    <>
+    <AlertInfo />
+
+    </>
+   
+  )
+}
