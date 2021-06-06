@@ -1,6 +1,6 @@
 // components 
 import QR from "../components/QR";
-import Avatar from "./Avatar";
+import AvatarBig from "./AvatarBig";
 
 export default function ProfileComponent() {
     return (
@@ -12,12 +12,7 @@ export default function ProfileComponent() {
         <div className="px-4 py-5 sm:p-6">
         <div className="sm:flex">
         <div className="mb-4 flex-shrink-0 sm:mb-0 sm:mr-4">
-          
-        <img
-          className="inline-block h-20 w-20 rounded-full"
-          src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-          alt=""
-        />
+        <AvatarBig />
         </div>
         <div>
           <h4 className="text-lg font-bold">[NAME]</h4>
