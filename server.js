@@ -27,6 +27,10 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/build/index.html'));
+});
+
 //app.use(express.static('public'));
 
 // for passport and authentication
@@ -86,7 +90,7 @@ connection.once('open', () => {
 })
 
 // define the routes 
-const projectsRouter = require('./routes/projects');
+//const projectsRouter = require('./routes/projects');
 const usersRouter = require('./routes/users');
 
 // import our routes 
@@ -130,9 +134,7 @@ app.get("/logout", function(req, res){
   //res.redirect('/');
 //});
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../client/build/index.html'));
-});
+
 
 // start the server
 // run nodemon server to start server  / rs to restart 
