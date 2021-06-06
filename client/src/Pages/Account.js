@@ -1,22 +1,16 @@
 // react 
 import { Fragment, useState } from 'react';
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 
-// components 
-//import NavbarIn from "../components/NavbarIn";
-//import NavbarOut from "../components/NavbarOut";
-//import Authentication from "../components/Authentication";
-//import Brand from "../components/Brand";
+// Account base components 
 import BrandWhite from "../components/BrandWhite";
 import Avatar from "../components/Avatar";
 import ProfileComponent from '../components/ProfileComponent';
-import Form1 from "../components/Form1";
-import Footer from "../components/Footer";
 import FooterAccount from "../components/FooterAccount";
 
 // tailwind 
-import {  Dialog, Menu, Popover, Transition } from '@headlessui/react';
+import {  Dialog, Menu, Transition } from '@headlessui/react';
 import {
   BellIcon,
   ChartBarIcon,
@@ -25,10 +19,7 @@ import {
   CurrencyDollarIcon,
   CogIcon,
   XIcon
-} from '@heroicons/react/outline'
-import { SearchIcon } from '@heroicons/react/solid';
-
-
+} from '@heroicons/react/outline';
 
 
 const navigation = [
