@@ -36,8 +36,8 @@ function App() {
         <Route exact path="/account" component={Account} />
         <Route exact path="/account/profile" component={Profile} />
         <Route exact path="/account/payments" component={Payments} />
-        <Route exact path="/account/notifications" component={Payments} />
-        <Route exact path="/account/settings" component={Payments} />
+        <Route exact path="/account/notifications" component={Notifications} />
+        <Route exact path="/account/settings" component={Settings} />
         <Route exact path="/logout" component={Home} />
       </div>
       </Switch>
