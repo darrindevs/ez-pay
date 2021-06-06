@@ -25,7 +25,7 @@ import {
 const navigation = [
   
   { name: 'Profile', location: '/account/profile', icon: UserCircleIcon, current: false },
-  { name: 'Payments', location: '/account/payments', icon: ChartBarIcon, current: true },
+  { name: 'Payments', location: '/account/payments', icon: CurrencyDollarIcon, current: true },
   { name: 'Notifications', location: '/account/notifications', icon: BellIcon, current: false },
   { name: 'Settings', location: '/account/settings', icon: CogIcon, current: false },
 ]
@@ -225,14 +225,14 @@ export default function Payments() {
         <main className="flex-1 relative overflow-y-auto focus:outline-none">
           <div className="py-6">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-              <h1 className="text-2xl font-semibold text-gray-900">Name of Component</h1>
+              <h1 className="text-2xl font-semibold text-gray-900">Payments</h1>
              
             </div>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
               {/* Replace with your content */}
               <div className="py-4">
               <PaymentsComponent />
-                <div className="border-4 border-dashed border-gray-200 rounded-lg h-96" />
+               
                 
               </div>
               {/* /End replace */}

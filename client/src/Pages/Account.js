@@ -25,7 +25,7 @@ import {
 const navigation = [
   
   { name: 'Profile', location: '/account/profile', icon: UserCircleIcon, current: true },
-  { name: 'Payments', location: '/account/payments', icon: ChartBarIcon, current: false },
+  { name: 'Payments', location: '/account/payments', icon: CurrencyDollarIcon, current: false },
   { name: 'Notifications', location: '/account/notifications', icon: BellIcon, current: false },
   { name: 'Settings', location: '/account/settings', icon: CogIcon, current: false },
 ]
