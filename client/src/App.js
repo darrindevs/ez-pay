@@ -12,9 +12,7 @@ import axios from "axios";
 
 
 import Home from "./Pages/Home";
-import Comp1 from "./components/Comp1";
-import Comp2 from "./components/Comp2";
-import Comp3 from "./components/Comp3";
+import Account from "./Pages/Account";
 import Dashboard from "./Pages/Dashboard";
 import MyCampaign from "./Pages/MyCampaign";
 import Send from "./Pages/Send"
@@ -31,11 +29,9 @@ function App() {
       <div className="">
         <body class="flex flex-col min-h-screen">{/* keep this for sticky footer */}
         <main class="">{/* keep flex-auto for sticky footer */}
-        <NavbarOut />
+       
         <Route exact path="/" component={Home} />
-        <Route exact path="/comp1" component={Comp1} />
-        <Route exact path="/comp2" component={Comp2} />
-        <Route exact path="/comp3" component={Comp3} />
+        <Route exact path="/account" component={Account} />
         <Route exact path="/dashboard" component={Dashboard} />
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/my-campaign" component={MyCampaign} />

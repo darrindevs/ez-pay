@@ -17,7 +17,7 @@
 import { CreditCardIcon, KeyIcon, UserCircleIcon, UserGroupIcon, ViewGridAddIcon } from '@heroicons/react/outline'
 
 const navigation = [
-  { name: 'Dashboard', href: '#', icon: UserCircleIcon, current: false },
+  { name: 'Dashboards', href: '#', icon: UserCircleIcon, current: false },
   { name: 'Account', href: '#', icon: UserCircleIcon, current: true },
   { name: 'Password', href: '#', icon: KeyIcon, current: false },
   { name: 'Plan & Billing', href: '#', icon: CreditCardIcon, current: false },

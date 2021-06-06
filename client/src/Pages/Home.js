@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-//import NavbarOut from "../components/NavbarOut";
+import NavbarOut from "../components/NavbarOut";
 import Authentication from "../components/Authentication";
 import Footer from "../components/Footer";
 import { Popover, Transition } from '@headlessui/react';
@@ -7,8 +7,11 @@ import { Popover, Transition } from '@headlessui/react';
 
 export default function Home() {
   return (
+    <body class="flex flex-col min-h-screen">{/* keep this for sticky footer */}
+        <main class="">{/* keep flex-auto for sticky footer */}
+        <NavbarOut />
     <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-      <main className="lg:relative mt-10">
+      <div className="lg:relative mt-10">
         <div className="mx-auto max-w-7xl w-full pt-16 pb-20 text-center lg:py-48 lg:text-left">
           <div className="px-4 lg:w-1/2 sm:px-8 xl:pr-16">
             <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl">
@@ -32,8 +35,10 @@ export default function Home() {
             alt=""
           />
         </div>
-      </main>
+      </div>
       <Footer />
     </div>
+    </main>
+    </body>
   )
 }
