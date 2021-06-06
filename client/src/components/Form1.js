@@ -1,8 +1,13 @@
+// axios + react 
 import axios from 'axios';
 import React, { Component } from 'react';
 // import utils
 //import { useStoreContext } from '../utils/GlobalState';
 //import { ADD_POST, LOADING } from '../utils/actions';
+
+
+// components 
+import Avatar from "./Avatar";
 
 
 export default class Form1 extends Component {
@@ -123,7 +128,7 @@ export default class Form1 extends Component {
             </label>
             <div className="mt-1 flex rounded-md shadow-sm">
               <span className="inline-flex items-center px-3 rounded-l-md border border-r-0 border-blue-gray-300 bg-blue-gray-50 text-blue-gray-500 sm:text-sm">
-                paymo.com/
+                ezpay.com/
               </span>
               <input
                 type="text"
@@ -141,11 +146,7 @@ export default class Form1 extends Component {
               Photo
             </label>
             <div className="mt-1 flex items-center">
-              <img
-                className="inline-block h-12 w-12 rounded-full"
-                src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                alt=""
-              />
+              <Avatar />
               <div className="ml-4 flex">
                 <div className="relative bg-white py-2 px-3 border border-blue-gray-300 rounded-md shadow-sm flex items-center cursor-pointer hover:bg-blue-gray-50 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-blue-gray-50 focus-within:ring-blue-500">
                   <label
@@ -189,12 +190,6 @@ export default class Form1 extends Component {
             <p className="mt-3 text-sm text-blue-gray-500">
               Brief description for your profile.
             </p>
-            <button
-          className=""
-          type="submit"
-        >
-          Save Post
-        </button>
           </div>
 
           
@@ -233,9 +228,9 @@ export default class Form1 extends Component {
           </button>
           <button
             type="submit"
-            className="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+            className="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
           >
-            Save
+            Save All
           </button>
         </div>
       </form>

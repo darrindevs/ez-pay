@@ -1,3 +1,4 @@
+// tailwind 
 import { CheckIcon, ThumbUpIcon, CurrencyDollarIcon } from '@heroicons/react/solid'
 
 const timeline = [

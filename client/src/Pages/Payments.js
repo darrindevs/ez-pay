@@ -8,6 +8,7 @@ import BrandWhite from "../components/BrandWhite";
 import Avatar from "../components/Avatar";
 import PaymentsComponent from '../components/PaymentsComponent';
 import FooterAccount from "../components/FooterAccount";
+import AlertWarning from "../components/AlertWarning";
 
 // tailwind 
 import {  Dialog, Menu, Transition } from '@headlessui/react';
@@ -228,8 +229,10 @@ export default function Payments() {
               <h1 className="text-2xl font-semibold text-gray-900">Payments</h1>
              
             </div>
+            
             <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
               {/* Replace with your content */}
+              
               <div className="py-4">
               <PaymentsComponent />
                

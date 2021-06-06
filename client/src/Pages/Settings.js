@@ -7,6 +7,7 @@ import { useLocation } from "react-router-dom";
 import BrandWhite from "../components/BrandWhite";
 import Avatar from "../components/Avatar";
 import SettingsComponent from '../components/SettingsComponent';
+//import Form1 from '../components/Form1';
 import FooterAccount from "../components/FooterAccount";
 
 // tailwind 
@@ -225,15 +226,13 @@ export default function Settings() {
         <main className="flex-1 relative overflow-y-auto focus:outline-none">
           <div className="py-6">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-              <h1 className="text-2xl font-semibold text-gray-900">Name of Component</h1>
+              <h1 className="text-2xl font-semibold text-gray-900">Settings</h1>
              
             </div>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
               {/* Replace with your content */}
               <div className="py-4">
-              <SettingsComponent />
-                <div className="border-4 border-dashed border-gray-200 rounded-lg h-96" />
-                
+                <SettingsComponent />
               </div>
               {/* /End replace */}
              
