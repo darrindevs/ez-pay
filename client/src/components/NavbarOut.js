@@ -1,5 +1,6 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { Fragment } from 'react';
+import Authentication from "../components/Authentication";
 import { Link, useLocation } from "react-router-dom";
 import Brand from "./Brand";
 import { Popover, Transition } from '@headlessui/react'
@@ -156,13 +157,7 @@ export default function NavbarOut() {
                   </Popover>
                 </Popover.Group>
                 <div className="flex items-center md:ml-12">
-                  
-                  <a
-                    href="#"
-                    className="ml-8 inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
-                  >
-                    Sign up
-                  </a>
+                <Authentication />
                 </div>
               </div>
             </div>
