@@ -6,7 +6,7 @@ import { useLocation } from "react-router-dom";
 // Account base components 
 import BrandWhite from "../components/BrandWhite";
 import Avatar from "../components/Avatar";
-import ProfileComponent from '../components/ProfileComponent';
+import NotificationsComponent from '../components/NotificationsComponent';
 import FooterAccount from "../components/FooterAccount";
 
 // tailwind 
@@ -24,9 +24,9 @@ import {
 
 const navigation = [
   
-  { name: 'Profile', location: '/account/profile', icon: UserCircleIcon, current: true },
+  { name: 'Profile', location: '/account/profile', icon: UserCircleIcon, current: false },
   { name: 'Payments', location: '/account/payments', icon: ChartBarIcon, current: false },
-  { name: 'Notifications', location: '/account/notifications', icon: BellIcon, current: false },
+  { name: 'Notifications', location: '/account/notifications', icon: BellIcon, current: true },
   { name: 'Settings', location: '/account/settings', icon: CogIcon, current: false },
 ]
 const userNavigation = [
@@ -228,7 +228,7 @@ export default function Notifications() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
               {/* Replace with your content */}
               <div className="py-4">
-              <ProfileComponent />
+              <NotificationsComponent />
                 <div className="border-4 border-dashed border-gray-200 rounded-lg h-96" />
                 
               </div>
