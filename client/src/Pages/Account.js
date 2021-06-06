@@ -9,6 +9,7 @@ import { Link, useLocation } from "react-router-dom";
 //import Authentication from "../components/Authentication";
 //import Brand from "../components/Brand";
 import BrandWhite from "../components/BrandWhite";
+import Avatar from "../components/Avatar";
 import ProfileComponent from '../components/ProfileComponent';
 import Form1 from "../components/Form1";
 import Footer from "../components/Footer";
@@ -187,14 +188,7 @@ export default function Account() {
                 {({ open }) => (
                   <>
                     <div>
-                      <Menu.Button className="max-w-xs bg-white flex items-center text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                        <span className="sr-only">Open user menu</span>
-                        <img
-                          className="h-8 w-8 rounded-full"
-                          src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                          alt=""
-                        />
-                      </Menu.Button>
+                      <Avatar />
                     </div>
                     <Transition
                       show={open}
