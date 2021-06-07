@@ -1,7 +1,7 @@
 // components 
 import QR from "../components/QR";
 import AvatarBig from "./AvatarBig";
-import LinkMyProfile from "./LinkMyProfile";
+import AlertWarning from "./AlertWarning";
 
 export default function ProfileComponent() {
     return (
@@ -27,8 +27,10 @@ export default function ProfileComponent() {
           </div>
           <div className="mt-5">
              {/* QR Code */}
-          <QR />
-          <LinkMyProfile />
+             <button class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">
+  Pay with Stripe
+</button>
+<AlertWarning />
           </div>
         </div>
       </div>
