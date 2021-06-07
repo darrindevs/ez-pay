@@ -1,7 +1,11 @@
 import { Fragment } from 'react';
+
+
 import NavbarOut from "../components/NavbarOut";
 import Authentication from "../components/Authentication";
 import Footer from "../components/Footer";
+
+// tailwind 
 import { Popover, Transition } from '@headlessui/react';
 
 

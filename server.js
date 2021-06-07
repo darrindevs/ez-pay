@@ -39,14 +39,14 @@ app.use
   (session({
     secret: process.env.SESSION_SECRET,
     resave: false, 
-    saveUninitialized: true, // true sets cookie in browser beforee we have info for session - true for dev, false for prod
-    //todo switch savedUninitialized to false for production 
+    saveUninitialized: false,
     cookie: {
       httpOnly: true,
       maxAge: 7200000 // 2 hours 
     }
   }));
-  // session is now on the server and confirmed that cookie is visible in the browser 
+  // session is now on the server and 
+  // confirmed that cookie is visible in the browser 
 
 //session middleware 
 // console log session info - seeing this only on fresh authentication 
@@ -107,8 +107,7 @@ app.get("/auth/google/callback",
   function(req, res) {
     // Successful authentication, redirect secrets.
     // this is working - if the user user authenticated then the url will be /accont/profile/
-    // local host required for google in development
-    res.redirect("http://localhost:3000/account" || "/account/profile");
+    res.redirect("http://localhost:3000/account/profile" || "/account/profile");
   }
 );
 
