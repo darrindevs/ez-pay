@@ -100,15 +100,15 @@ app.use('/users', usersRouter);
 
 // middleware for passport
 app.get("/auth/google",
-  passport.authenticate("google", { scope: ["profile", "email"] })
+  passport.authenticate("google", { scope: ['email', 'profile'] })
 );
 app.get("/auth/google/callback",
   passport.authenticate("google", { failureRedirect: "http://localhost:3000" || "/" }),
   function(req, res) {
     // Successful authentication, redirect secrets.
-    // this is working - if the user user authenticated then the url will be /a/...
+    // this is working - if the user user authenticated then the url will be /accont/profile/
     // local host required for google in development
-    res.redirect("http://localhost:3000/account" || "/account");
+    res.redirect("http://localhost:3000/account" || "/account/profile");
   }
 );
 
@@ -116,7 +116,7 @@ app.get("/auth/google/callback",
 // todo update for production url 
 // todo make a button / link for this 
 app.get("/logout", function(req, res){
-    res.redirect("http://localhost:3000/");
+    res.redirect("http://localhost:3000/" || "/");
   });
 
 

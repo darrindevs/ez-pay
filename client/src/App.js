@@ -11,6 +11,7 @@ import Payments from "./Pages/Payments";
 import Notifications from "./Pages/Notifications";
 import Settings from "./Pages/Settings";
 import PaymentProfile from "./Pages/PaymentProfile";
+import View from "./Pages/View";
 //import EditProfile from "./Pages/EditProfile";
 //import Payments from "./Pages/Payments";
 //import Settings from "./Pages/Settings";
@@ -39,6 +40,7 @@ function App() {
         <Route exact path="/account/notifications" component={Notifications} />
         <Route exact path="/account/settings" component={Settings} />
         <Route exact path="/logout" component={Home} />
+        <Route exact path="/view" component={View} />
       </div>
       </Switch>
       

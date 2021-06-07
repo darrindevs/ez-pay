@@ -11,7 +11,7 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
   googleId : {
       type : String,
-      required: false
+      required: true
   } , 
   displayName : {
    type : String,
@@ -19,11 +19,11 @@ const userSchema = new Schema({
 } ,
 firstName : {
    type : String,
-   required: false
+   required: true
 } ,
 lastName : {
    type : String,
-   required: false
+   required: true
 },
 image : {
    type : String,

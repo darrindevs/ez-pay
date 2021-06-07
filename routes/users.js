@@ -51,7 +51,7 @@ router.get("/:userId", (req, res, next) => {
   });
 
 // add a new user 
-// this is working with all fielbs in object
+// this is working with all fields in object
 // like this /add 
 router.route('/add').post((req, res) => {
     // save the new user to the db 
